@@ -1,0 +1,42 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.topjal.quiz",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "5.4.2",
+    "applicationType": "monolith",
+    "baseName": "topjal",
+    "packageName": "com.topjal.quiz",
+    "packageFolder": "com/topjal/quiz",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "elasticsearch",
+    "messageBroker": "kafka",
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": true,
+    "jwtSecretKey": "NjZhM2RiOGU0ZjFlMjAxNGNjNjBiNGMyMWJhMTBmYzc2ZWE3NDI4ODVjNzk5MmFiYzM4ZDI0ZWYyNWZkNTYxNGQxODljZWQwMTFkOTRiYTJhNmNmNGU5YzEwNmIzN2U4N2M3OGJkZmM0MWEzNWM0YmI1YjEzMjQ4ZTM5ZTFmODc=",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [
+      "gatling",
+      "cucumber",
+      "protractor"
+    ],
+    "jhiPrefix": "jhi",
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": [
+      "en",
+      "bn"
+    ]
+  }
+}
