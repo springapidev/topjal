@@ -75,7 +75,7 @@
     <div class="container">
         <!--                <img src="images/logo.png" height="40" width="auto" alt="Topjal"/>-->
 
-        <h2> <i class="fas fa-cloud-sun-rain fa-1x"></i> Topjal</h2>
+        <h2><i class="fas fa-cloud-sun-rain fa-1x"></i> Topjal</h2>
         <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" id="sidebarCollapse">
             <i class="fas fa-align-justify"></i>
         </button>
@@ -119,13 +119,109 @@
 
     <div class="container">
         <div class="row">
+            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 login">
+                <h2 class="margin-top-bottom">Login Here</h2>
+                <form th:action="@{/login}" method="post">
 
-            <div class="offset-xl-3 col-xl-4 offset-lg-3 col-lg-6 offset-md-3 col-md-6 col-sm-12 margin-top-bottom">
-                <h3>${errorMsg}</h3>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text fab fa-twitter"> Username</span>
+                        </div>
+                        <input type="text" required="required" name="username" class="form-control" placeholder="Enter Username">
 
-                <div class="split-pane-divider"></div>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text fab fa-twitter"> Password</span>
+                        </div>
+                        <input type="text" required="required" name="password" class="form-control" placeholder="Enter Password">
+
+                    </div>
+
+
+
+
+
+                    <!--<div class="row">-->
+                        <!--<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 form-group">-->
+                            <!--<p>Username <i class="fab fa-twitter"></i></p>-->
+                        <!--</div>-->
+                        <!--<div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 form-group">-->
+                            <!--<input class="form-control" type="text" name="username" required="required"/>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="row">-->
+                        <!--<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 form-group">-->
+                            <!--<p>Password <i class="fab fa-twitter"></i></p>-->
+                        <!--</div>-->
+                        <!--<div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 form-group">-->
+                            <!--<input class="form-control" type="text" name="password" required="required"/>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <div class="row">
+                        <div class="offset-xl-4 col-xl-8 offset-lg-4 col-lg-8 offset-md-4 col-md-8 col-sm-12">
+                            <input class="btn btn-outline-info btn-lg" type="submit" value="Login"/>
+                        </div>
+                    </div>
+                </form>
+                <hr/>
+                <div class="row">
+
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 form-group">
+                        <a class="card-link" href="/forget-password" th:href="@{/forget-password}">Forget Password? <i class="fab fa-twitter"></i></a>
+                    </div>
+
+                </div>
+
             </div>
+
+            <div class="offset-xl-1 offset-lg-1 offset-md-1 col-xl-6 col-lg-6 col-md-6 col-sm-12 signup">
+<h2 class="margin-top-bottom card-title">Sign Up Here</h2>
+                <form th:action="@{/signup}" method="post">
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text fab fa-twitter"> Person &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; </span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="First Name">
+                        <input type="text" class="form-control" placeholder="Last Name">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text fab fa-twitter"> Email &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; </span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Enter Email Address">
+
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text fab fa-twitter"> Password &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; </span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Enter Password">
+
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text fab fa-twitter"> Confirmed Password</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Enter Password">
+
+                    </div>
+
+                    <div class="row">
+                        <div class="offset-xl-4 col-xl-8 offset-lg-4 col-lg-8 offset-md-4 col-md-8 col-sm-12 form-group">
+                            <input class="btn btn-outline-info btn-lg" type="submit" value="Sign Up"/>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
         </div>
+
 
     </div>
 
@@ -174,7 +270,7 @@
                                     <!-- Single Input Area Start -->
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="email" class="form-control" name="email" id="email"
+                                            <input type="email" class="form-control" name="email"
                                                    placeholder="Your E-mail" required>
                                         </div>
                                     </div>
