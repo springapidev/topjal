@@ -75,7 +75,7 @@
     <div class="container">
         <!--                <img src="images/logo.png" height="40" width="auto" alt="Topjal"/>-->
 
-        <h2> <i class="fas fa-cloud-sun-rain fa-1x"></i> Topjal</h2>
+        <h2><i class="fas fa-cloud-sun-rain fa-1x"></i> Topjal</h2>
         <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" id="sidebarCollapse">
             <i class="fas fa-align-justify"></i>
         </button>
@@ -122,8 +122,8 @@
 
             <div class="offset-xl-3 col-xl-4 offset-lg-3 col-lg-6 offset-md-3 col-md-6 col-sm-12 margin-top-bottom">
                 <h2>Ki Hosse Esob</h2>
-                <h3>Error Code is ${code} for ${message} </h3>
-
+                <h3 th:text="${code}">Error Code is ${code} for ${message} </h3>
+                <h1> Return to <a th:href="@{/}">Go Home</a></h1>
                 <div class="split-pane-divider"></div>
             </div>
         </div>

@@ -1,1 +1,3 @@
-https://coderwall.com/p/4lrv6a/ace-editor-form-submit
+
+https://dzone.com/articles/ajax-with-ckeditor-in-spring-boot
+https://www.javacodegeeks.com/2017/11/ajax-ckeditor-spring-boot.html
