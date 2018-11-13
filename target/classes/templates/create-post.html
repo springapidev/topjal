@@ -14,6 +14,8 @@
     <link href="/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
     <link href="/css/responsive.css" th:href="@{/css/responsive.css}" rel="stylesheet"/>
 
+    <script src="/ckeditor/ckeditor.js" th:src="@{/ckeditor/ckeditor.js}"></script>
+    <script src="/ckeditor/samples/js/sample.js" th:src="@{/ckeditor/samples/js/sample.js}"></script>
 
 </head>
 
@@ -86,6 +88,7 @@
                     <h2>Create | Update | Del || Privilize</h2>
                     <div class="line-shape"></div>
                 </div>
+
             </div>
         </div>
         <div class="row">
@@ -114,9 +117,9 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-lg-2 col-md-3 col-sm-4" for="description">Description:</label>
+                    <label class="col-lg-2 col-md-3 col-sm-4" for="editor">Description:</label>
                     <div class="col-lg-12 col-md-12 col-sm-12">
-                        <textarea name="description"  th:type="text" class="form-control" id="description"
+                        <textarea name="description"  th:type="text" class="form-control" id="editor"
                                th:value="${post.getDescription()}" th:name="*{description}"
                                th:field="*{description}" placeholder="Enter Category Description" th:rows="20">
 
@@ -308,10 +311,12 @@
 <script src="/js/footer-reveal.min.js" th:src="@{/js/footer-reveal.min.js}"></script>
 <!-- Active JS -->
 <script src="/js/active.js" th:src="@{/js/active.js}"></script>
-<script src="https://cdn.ckeditor.com/ckeditor5/11.1.1/classic/ckeditor.js"></script>
+<!--<script src="https://cdn.ckeditor.com/ckeditor5/11.1.1/classic/ckeditor.js"></script>-->
+
 <script>
-    ClassicEditor
-        .create( document.querySelector( '#description' ));
+    //ClassicEditor
+        //.create( document.querySelector( '#description' ));
+    initSample();
 </script>
 </body>
 

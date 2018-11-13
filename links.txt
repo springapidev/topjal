@@ -4,3 +4,5 @@ https://www.javacodegeeks.com/2017/11/ajax-ckeditor-spring-boot.html
 
 gooood:
 http://www.codesenior.com/en/tutorial/CKEditor-and-SimpleUploads-Configuration-in-Spring-Web-Application
+
+Official Java Installation
