@@ -35,18 +35,18 @@ public class PostController {
     private static int pageSize = 5;
 
     @RequestMapping(value = "/post/create", method = RequestMethod.GET)
-    public ModelAndView getPost(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "4") int perPage) {
+    public ModelAndView getPost(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "40") int perPage) {
         ModelAndView modelAndView = new ModelAndView();
         Post post = new Post();
         modelAndView.addObject("post", post);
-        modelAndView.addObject("list", service.getAllPosts(page, perPage));
+//        modelAndView.addObject("list", service.getAllPosts(page, perPage));
         modelAndView.addObject("allCategories", categoryRepo.findAll());
-        modelAndView.setViewName("create-post");
+        modelAndView.setViewName("post-create");
         return modelAndView;
     }
 
     @RequestMapping(value = "/post/create", method = RequestMethod.POST)
-    public ModelAndView savePost(@Valid Post post, BindingResult bindingResult, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "4") int perPage, @RequestParam("checkcategories") Long markedCategories) {
+    public String savePost(@Valid Post post, BindingResult bindingResult, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "4") int perPage, @RequestParam("checkcategories") Long markedCategories) {
         Category category = new Category();
         category.setId(markedCategories);
         post.setCategory(category);
@@ -55,38 +55,33 @@ public class PostController {
         System.out.println("===== " + post.getTitle());
         if (postExit != null && post.getId() != null) {
             bindingResult.rejectValue("title", "error.title", "You already have inserted this Post Title");
-            modelAndView.addObject("list", service.getAllPosts(page, perPage));
             modelAndView.addObject("allCategories", categoryRepo.findAll());
         }
         if (bindingResult.hasErrors()) {
-            modelAndView.setViewName("create-post");
+            return "post-create";
         } else {
-            if (post.getId() != null || post.getDescription().length() >= 400) {
-                service.update(post);
-                modelAndView.addObject("successMessage", "Update Success");
-                modelAndView.addObject("list", service.getAllPosts(page, perPage));
-                modelAndView.addObject("allCategories", categoryRepo.findAll());
-            } else {
                 if(post.getDescription().length() < 400) {
                     bindingResult.rejectValue("description", "error.description", "Input at least 400 Characters");
-                    modelAndView.addObject("list", service.getAllPosts(page, perPage));
                     modelAndView.addObject("allCategories", categoryRepo.findAll());
                 }else{
                     service.save(post);
                     modelAndView.addObject("successMessage", "Insert Success");
-                    modelAndView.addObject("list", service.getAllPosts(page, perPage));
                     modelAndView.addObject("allCategories", categoryRepo.findAll());
                 }
             }
 
 
             modelAndView.addObject("post", new Post());
-            modelAndView.addObject("list", service.getAllPosts(page, perPage));
             modelAndView.addObject("allCategories", categoryRepo.findAll());
-            modelAndView.setViewName("create-post");
-
-        }
-
+               return "post-create";
+    }
+    @RequestMapping(value = "/post/edit", method = RequestMethod.GET)
+    public ModelAndView getEditPost() {
+        ModelAndView modelAndView = new ModelAndView();
+        Post post = new Post();
+        modelAndView.addObject("post", post);
+        modelAndView.addObject("allCategories", categoryRepo.findAll());
+        modelAndView.setViewName("edit-post");
         return modelAndView;
     }
 
@@ -102,7 +97,7 @@ public class PostController {
         model.addAttribute("post", post);
         model.addAttribute("list", service.getAllPosts(page, perPage));
         model.addAttribute("allCategories", categoryRepo.findAll());
-        return "create-post";
+        return "post-create";
     }
 
     @PreAuthorize("hasAnyRole('ADMIN')")
@@ -114,5 +109,23 @@ public class PostController {
         modelAndView.addObject("list", service.getAllPosts(page, perPage));
         modelAndView.addObject("allCategories", categoryRepo.findAll());
         return "redirect:/post/create";
+    }
+
+    @RequestMapping(value = "/post/list", method = RequestMethod.GET)
+    public ModelAndView getPostList(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "40") int perPage) {
+        ModelAndView modelAndView = new ModelAndView();
+        Post post = new Post();
+        modelAndView.addObject("post", post);
+        modelAndView.addObject("list", service.getAllPosts(page, perPage));
+        modelAndView.setViewName("post-list");
+        return modelAndView;
+    }
+    @RequestMapping(value = "/post/{id}", method = RequestMethod.GET)
+    public ModelAndView getSinglePost(@PathVariable Long id) {
+        ModelAndView modelAndView = new ModelAndView();
+        Post post = new Post();
+        modelAndView.addObject("post", service.getPost(id));
+                modelAndView.setViewName("single-post");
+        return modelAndView;
     }
 }
