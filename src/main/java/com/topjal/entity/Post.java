@@ -3,6 +3,7 @@ package com.topjal.entity;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.Date;
 import java.util.Objects;
 import java.util.Set;
 
@@ -23,15 +24,28 @@ public class Post {
     @Size(min = 400,message = "Enter at Least 400 Characters")
     private String description;
 
+    @Column(name = "status")
+    @NotEmpty(message = "Please Enter Status")
+    private String status;
+
     @ManyToOne
     @JoinColumn(name = "post_cat_id")
     private Category category;
+
     @ManyToMany
     @JoinTable(
             name = "post_tag",
             joinColumns = @JoinColumn(name = "post_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id"))
     private Set<Tag> tags;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "create_date")
+    private Date createDate;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "update_date")
+    private Date updateDate;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -88,6 +102,30 @@ public class Post {
         this.user = user;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -101,4 +139,5 @@ public class Post {
     public int hashCode() {
         return Objects.hash(getId());
     }
+
 }

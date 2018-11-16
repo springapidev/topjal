@@ -12,7 +12,8 @@ if ( CKEDITOR.env.ie && CKEDITOR.env.version < 9 )
 // unless user specified own height.
 CKEDITOR.config.height = 150;
 CKEDITOR.config.width = 'auto';
-filebrowserUploadUrl:'/images/upload/';
+
+
 
 var initSample = ( function() {
 	var wysiwygareaAvailable = isWysiwygareaAvailable(),
@@ -25,7 +26,7 @@ var initSample = ( function() {
 		if ( isBBCodeBuiltIn ) {
 			editorElement.setHtml(
 				'Hello world!\n\n' +
-				'I\'m an instance of [url=https://ckeditor.com]CKEditor[/url].'
+				'I\'m an instance of [url=https://topjal.com]Topjal Inc.[/url].'
 			);
 		}
 

@@ -7,6 +7,7 @@ import com.topjal.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 
@@ -44,4 +45,16 @@ repo.deleteById(id);
     public Post isAlreadyExist(String title) {
         return repo.findByTitle(title);
     }
+
+    @Override
+    public boolean isExist(long id) {
+        return repo.existsById(id);
+    }
+
+    @Override
+    public Page<Post> findTopBy9ByOrderByCreateDateDesc(int page, int perPageRow) {
+        return repo.findTop9ByOrderByCreateDateDesc(PageRequest.of(page,perPageRow));
+    }
+
+
 }

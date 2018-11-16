@@ -3,11 +3,16 @@ package com.topjal.controller;
 
 import com.topjal.entity.Category;
 import com.topjal.entity.Post;
+import com.topjal.entity.Tag;
+import com.topjal.entity.User;
 import com.topjal.repo.CategoryRepo;
+import com.topjal.repo.TagRepo;
 import com.topjal.service.PostService;
+import com.topjal.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,9 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 
 @Controller
@@ -30,6 +33,12 @@ public class PostController {
 
     @Autowired
     private CategoryRepo categoryRepo;
+
+    @Autowired
+    private TagRepo tagRepo;
+
+    @Autowired
+    private UserService userService;
 
     private static int currentPage = 1;
     private static int pageSize = 5;
@@ -41,21 +50,38 @@ public class PostController {
         modelAndView.addObject("post", post);
 //        modelAndView.addObject("list", service.getAllPosts(page, perPage));
         modelAndView.addObject("allCategories", categoryRepo.findAll());
+        modelAndView.addObject("allTags", tagRepo.findAll());
         modelAndView.setViewName("post-create");
         return modelAndView;
     }
 
     @RequestMapping(value = "/post/create", method = RequestMethod.POST)
-    public String savePost(@Valid Post post, BindingResult bindingResult, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "4") int perPage, @RequestParam("checkcategories") Long markedCategories) {
+    public String savePost(@Valid Post post, BindingResult bindingResult, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "4") int perPage, @RequestParam("checkcategories") Long markedCategories, @RequestParam("checktags") Long[] markedtags, Authentication authentication) {
         Category category = new Category();
         category.setId(markedCategories);
         post.setCategory(category);
+        post.setCreateDate(new Date());
+        post.setUpdateDate(new Date());
+        User user=userService.isUserNameAlreadyExist(authentication.getName());
+        user.setId(user.getId());
+        post.setUser(user);
+        Set<Tag> sets=new HashSet<>();
+        if(markedtags.length > 0) {
+            for (Long i : markedtags) {
+                Tag t = new Tag();
+                t.setId(i);
+                sets.add(t);
+            }
+        }
+post.setTags(sets);
+
         ModelAndView modelAndView = new ModelAndView();
-        Post postExit = service.isAlreadyExist(post.getTitle());
+        Post postExit = service.isAlreadyExist(post.getTitle().trim());
         System.out.println("===== " + post.getTitle());
         if (postExit != null && post.getId() != null) {
             bindingResult.rejectValue("title", "error.title", "You already have inserted this Post Title");
             modelAndView.addObject("allCategories", categoryRepo.findAll());
+            modelAndView.addObject("allTags", tagRepo.findAll());
         }
         if (bindingResult.hasErrors()) {
             return "post-create";
@@ -66,7 +92,9 @@ public class PostController {
                 }else{
                     service.save(post);
                     modelAndView.addObject("successMessage", "Insert Success");
+                    modelAndView.addObject("post", new Post());
                     modelAndView.addObject("allCategories", categoryRepo.findAll());
+                    modelAndView.addObject("allTags", tagRepo.findAll());
                 }
             }
 
@@ -81,6 +109,7 @@ public class PostController {
         Post post = new Post();
         modelAndView.addObject("post", post);
         modelAndView.addObject("allCategories", categoryRepo.findAll());
+        modelAndView.addObject("allTags", tagRepo.findAll());
         modelAndView.setViewName("edit-post");
         return modelAndView;
     }
@@ -97,6 +126,7 @@ public class PostController {
         model.addAttribute("post", post);
         model.addAttribute("list", service.getAllPosts(page, perPage));
         model.addAttribute("allCategories", categoryRepo.findAll());
+        model.addAttribute("allTags", tagRepo.findAll());
         return "post-create";
     }
 
@@ -108,15 +138,19 @@ public class PostController {
         modelAndView.addObject("successMessage", "Delete Success");
         modelAndView.addObject("list", service.getAllPosts(page, perPage));
         modelAndView.addObject("allCategories", categoryRepo.findAll());
+        modelAndView.addObject("allTags", tagRepo.findAll());
         return "redirect:/post/create";
     }
 
     @RequestMapping(value = "/post/list", method = RequestMethod.GET)
-    public ModelAndView getPostList(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "40") int perPage) {
+    public ModelAndView getPostList(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "9") int perPage) {
         ModelAndView modelAndView = new ModelAndView();
         Post post = new Post();
         modelAndView.addObject("post", post);
-        modelAndView.addObject("list", service.getAllPosts(page, perPage));
+        modelAndView.addObject("list", service.findTopBy9ByOrderByCreateDateDesc(page, perPage));
+
+
+
         modelAndView.setViewName("post-list");
         return modelAndView;
     }

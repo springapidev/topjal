@@ -17,7 +17,7 @@ public class HomeController {
     @Autowired
     private PostService service;
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView index(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "4") int perPage) {
+    public ModelAndView index(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "6") int perPage) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("title","Hire Us to Build Your  Future ");
         modelAndView.addObject("list", service.getAllPosts(page, perPage));

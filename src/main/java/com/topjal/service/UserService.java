@@ -11,6 +11,7 @@ public interface UserService {
     User update(User user);
     void delete(Long id);
     Optional<User> getUser(Long id);
+
     Page<User> getAllUsers(int page, int perPageRow);
     User isEmailAlreadyExist(String email);
     User isMobileAlreadyExist(String mobile);

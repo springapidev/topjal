@@ -58,8 +58,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/fonts/**",
                         "/webfonts/**",
                         "/signup/**",
-                        "forget-password/**"
-
+                        "forget-password/**",
+                        "page1",
+                        "page2"
                 ).permitAll()
                 .antMatchers(
                        "/privilize/**",

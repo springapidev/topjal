@@ -11,6 +11,7 @@ font-family: proxima-nova, Helvetica, Arial, sans-serif;
 #headerAndBody{
     background-image: url("../images/bg.jpg");
     background-repeat: repeat;
+    margin-top:63px;
 }
 .content-bg{
     background: #fff;

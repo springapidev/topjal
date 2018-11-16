@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+    <nav th:fragment="main-navbar" id="navbar" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <!--                <img src="images/logo.png" height="40" width="auto" alt="Topjal"/>-->
+
+            <h2><i class="fas fa-cloud-sun-rain fa-1x"></i> Topjal</h2>
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" id="sidebarCollapse">
+                <i class="fas fa-align-justify"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/" th:href="@{/}"> <i class="fas fa-home"></i> Home</i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"> <i class="fas fa-project-diagram"></i> Projects</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#"> <i class="fas fa-graduation-cap"></i> Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/post/list"> <i class="fas fa-code" th:href="@{/post/list}"></i> Tutorials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup" th:href="@{/signup}"> <i class="fas fa-user-plus"> Sign Up</i></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login" th:href="@{/login}">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-search"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</body>
+
+</html>
