@@ -148,7 +148,7 @@ post.setTags(sets);
         Post post = new Post();
         modelAndView.addObject("post", post);
         modelAndView.addObject("list", service.findTopBy9ByOrderByCreateDateDesc(page, perPage));
-
+        modelAndView.addObject("allTags", tagRepo.findAll());
 
 
         modelAndView.setViewName("post-list");
@@ -159,7 +159,7 @@ post.setTags(sets);
         ModelAndView modelAndView = new ModelAndView();
         Post post = new Post();
         modelAndView.addObject("post", service.getPost(id));
-                modelAndView.setViewName("single-post");
+                modelAndView.setViewName("post-single");
         return modelAndView;
     }
 }

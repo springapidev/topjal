@@ -11,9 +11,7 @@
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="css/sidebar-nav.css" th:href="@{/css/sidebar-nav.css}">
     <link rel="stylesheet" href="/css/font-awesome.css" th:href="@{/css/font-awesome.css}"/>
-    <link rel="stylesheet"
-          href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <link rel="stylesheet" href="/highlights/jquery.highlight.css" th:href="@{/highlights/jquery.highlight.css}"/>
 
 </head>
 <body>
@@ -40,7 +38,8 @@
 <script th:src="@{/js/jquery.mCustomScrollbar.concat.min.js}" src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="/ckeditor/ckeditor.js" th:src="@{/ckeditor/ckeditor.js}"></script>
 <script src="/ckeditor/samples/js/sample.js" th:src="@{/ckeditor/samples/js/sample.js}"></script>
-<script type="text/javascript">
+<script src="/highlights/jquery.highlight.js" th:src="@{/highlights/jquery.highlight.js}"></script>
+    <script type="text/javascript">
     $(document).ready(function () {
         $("#sidebar").mCustomScrollbar({
             theme: "minimal"
@@ -64,6 +63,10 @@
 </script>
 
 
-<script>hljs.initHighlightingOnLoad();</script>
+<script>
+    $(document).ready(function(){
+        $('pre.code').highlight({source:1, zebra:1, indent:'space', list:'ol',attribute: 'data-language'});
+    });
+</script>
 </body>
 </html>

@@ -2,46 +2,216 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3ea981b-4059-49d7-8078-ae8aef2c637e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/topjal/controller/ViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/footer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/mobile-nav.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/navbar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/under-header.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/layout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/layout2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/page2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/highlights/jquery.highlight.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/highlights/jquery.highlight.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/post-single.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/topjal/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/topjal/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/topjal/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/topjal/controller/HomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/topjal/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/topjal/controller/PostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/topjal/entity/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/topjal/entity/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/topjal/repo/PostRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/topjal/repo/PostRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/topjal/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/topjal/service/PostService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/topjal/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/topjal/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/topjal/serviceImpl/PostServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/topjal/serviceImpl/PostServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/samples/js/sample.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/ckeditor/samples/js/sample.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/sidebar-nav.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/sidebar-nav.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/post-create.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/post-create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/post-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/post-edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/post-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/post-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/highlight.pack.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/a11y-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/a11y-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/agate.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/an-old-hope.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/androidstudio.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/arduino-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/arta.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/ascetic.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/atelier-cave-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/atelier-cave-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/atelier-dune-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/atelier-dune-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/atelier-estuary-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/atelier-estuary-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/atelier-forest-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/atelier-forest-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/atelier-heath-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/atelier-heath-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/atelier-lakeside-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/atelier-lakeside-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/atelier-plateau-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/atelier-plateau-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/atelier-savanna-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/atelier-savanna-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/atelier-seaside-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/atelier-seaside-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/atelier-sulphurpool-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/atelier-sulphurpool-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/atom-one-dark-reasonable.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/atom-one-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/atom-one-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/brown-paper.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/brown-papersq.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/codepen-embed.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/color-brewer.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/darcula.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/darkula.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/default.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/docco.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/dracula.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/far.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/foundation.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/github-gist.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/github.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/gml.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/googlecode.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/grayscale.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/gruvbox-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/gruvbox-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/hopscotch.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/hybrid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/idea.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/ir-black.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/isbl-editor-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/isbl-editor-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/kimbie.dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/kimbie.light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/lightfair.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/magula.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/mono-blue.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/monokai-sublime.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/monokai.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/nord.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/obsidian.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/ocean.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/paraiso-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/paraiso-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/pojoaque.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/pojoaque.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/purebasic.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/qtcreator_dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/qtcreator_light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/railscasts.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/rainbow.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/routeros.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/school-book.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/school-book.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/shades-of-purple.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/solarized-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/solarized-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/sunburst.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/tomorrow-night-blue.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/tomorrow-night-bright.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/tomorrow-night-eighties.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/tomorrow-night.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/tomorrow.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/vs.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/vs2015.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/xcode.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/xt256.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/zenburn.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layoutck.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layoutck.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/topjal/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/topjal/config/SecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/topjal/controller/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/topjal/controller/HomeController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/topjal/controller/PostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/topjal/controller/PostController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/topjal/entity/Post.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/topjal/entity/Post.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/topjal/service/PostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/topjal/service/PostService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/topjal/serviceImpl/PostServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/topjal/serviceImpl/PostServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/sidebar-nav.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/sidebar-nav.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/post-create.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/post-create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/post-edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/post-edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/post-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/post-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/highlight.pack.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/a11y-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/a11y-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/agate.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/an-old-hope.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/androidstudio.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/arduino-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/arta.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/ascetic.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/atelier-cave-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/atelier-cave-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/atelier-dune-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/atelier-dune-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/atelier-estuary-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/atelier-estuary-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/atelier-forest-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/atelier-forest-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/atelier-heath-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/atelier-heath-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/atelier-lakeside-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/atelier-lakeside-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/atelier-plateau-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/atelier-plateau-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/atelier-savanna-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/atelier-savanna-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/atelier-seaside-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/atelier-seaside-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/atelier-sulphurpool-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/atelier-sulphurpool-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/atom-one-dark-reasonable.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/atom-one-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/atom-one-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/brown-paper.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/brown-papersq.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/codepen-embed.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/color-brewer.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/darcula.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/darkula.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/default.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/docco.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/dracula.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/far.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/foundation.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/github-gist.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/github.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/gml.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/googlecode.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/grayscale.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/gruvbox-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/gruvbox-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/hopscotch.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/hybrid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/idea.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/ir-black.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/isbl-editor-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/isbl-editor-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/kimbie.dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/kimbie.light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/lightfair.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/magula.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/mono-blue.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/monokai-sublime.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/monokai.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/nord.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/obsidian.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/ocean.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/paraiso-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/paraiso-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/pojoaque.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/pojoaque.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/purebasic.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/qtcreator_dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/qtcreator_light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/railscasts.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/rainbow.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/routeros.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/school-book.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/school-book.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/shades-of-purple.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/solarized-dark.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/solarized-light.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/sunburst.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/tomorrow-night-blue.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/tomorrow-night-bright.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/tomorrow-night-eighties.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/tomorrow-night.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/tomorrow.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/vs.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/vs2015.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/xcode.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/xt256.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/highlights/styles/zenburn.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/samples/old/assets/uilanguages/languages.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/samples/old/htmlwriter/assets/outputforflash/outputforflash.fla" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/samples/old/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/samples/old/jquery.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/samples/old/sample.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/samples/old/tabindex.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/samples/old/toolbar/toolbar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/samples/toolbarconfigurator/font/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/ckeditor/samples/toolbarconfigurator/font/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/layoutck.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/layoutck.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/topjal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/topjal.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -127,69 +297,48 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/post-create.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1224">
-              <caret line="72" column="87" selection-start-line="72" selection-start-column="87" selection-end-line="72" selection-end-column="87" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+    <leaf>
+      <file leaf-file-name="PostController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/topjal/controller/PostController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="157" column="62" selection-start-line="157" selection-start-column="62" selection-end-line="157" selection-end-column="62" />
+            <state relative-caret-position="884">
+              <caret line="161" column="53" selection-start-line="161" selection-start-column="47" selection-end-line="161" selection-end-column="53" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/post-list.html">
+      <file leaf-file-name="post-create.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/post-create.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="30" column="76" selection-start-line="30" selection-start-column="76" selection-end-line="30" selection-end-column="76" />
-              <folding>
-                <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-              </folding>
+            <state relative-caret-position="1173">
+              <caret line="69" column="15" lean-forward="true" selection-start-line="69" selection-start-column="15" selection-end-line="69" selection-end-column="15" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/layout.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" selection-start-line="31" selection-end-line="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
+      <file leaf-file-name="layoutck.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/layoutck.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-583">
-              <caret line="15" column="97" selection-start-line="15" selection-start-column="97" selection-end-line="15" selection-end-column="97" />
+            <state relative-caret-position="58">
+              <caret line="40" column="84" selection-start-line="40" selection-start-column="84" selection-end-line="40" selection-end-column="84" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/vs.css">
+      <file leaf-file-name="post-single.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/post-single.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="15" lean-forward="true" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+            <state relative-caret-position="51">
+              <caret line="3" column="90" selection-start-line="3" selection-start-column="90" selection-end-line="3" selection-end-column="90" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/ckeditor/samples/js/sample.js">
+      <file leaf-file-name="Tag.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/topjal/entity/Tag.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+            <state relative-caret-position="78">
+              <caret line="8" column="18" lean-forward="true" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -221,8 +370,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/login.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/topjal/entity/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/topjal/config/CustomUserDetails.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/forget-password.html" />
@@ -249,7 +396,6 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/topjal/controller/ViewController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/topjal/config/SecurityConfig.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/page2.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/fragments/mobile-nav.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/fragments/navbar.html" />
@@ -266,11 +412,14 @@
         <option value="$PROJECT_DIR$/src/main/java/com/topjal/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/post-create.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/topjal/service/PostService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/topjal/controller/PostController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/post-list.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/topjal/repo/PostRepo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/topjal/serviceImpl/PostServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/ckeditor/samples/js/sample.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/highlights/jquery.highlight.css" />
+        <option value="$PROJECT_DIR$/src/main/java/com/topjal/config/SecurityConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/topjal/controller/PostController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/post-single.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/layoutck.html" />
       </list>
     </option>
@@ -299,6 +448,9 @@
       <select />
     </treeState>
   </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
@@ -311,8 +463,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -336,6 +486,39 @@
               <item name="topjal" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="topjal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="topjal" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="topjal" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="topjal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="topjal" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="topjal" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="topjal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="topjal" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="topjal" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="topjal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="topjal" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -353,16 +536,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="ckeditor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="topjal" type="b2602c69:ProjectViewProjectNode" />
-              <item name="topjal" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="ckeditor" type="462c0819:PsiDirectoryNode" />
               <item name="highlights" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -381,6 +554,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -399,10 +575,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\git\topjal\src\main\resources\templates" />
+      <recent name="D:\git\topjal\src\main\resources\static\highlights" />
       <recent name="E:\git\topjal\src\main\resources\static\ckeditor\highlights" />
       <recent name="E:\git\topjal\src\main\resources\templates" />
       <recent name="E:\git\topjal\src\main\resources\templates\fragments" />
-      <recent name="E:\git\topjal\src\main\resources\templates\layout" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -423,9 +600,6 @@
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.topjal.TopjalApplication" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateResources" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
   </component>
   <component name="SvnConfiguration">
@@ -452,48 +626,52 @@
       <workItem from="1542337864652" duration="7444000" />
       <workItem from="1542349847658" duration="4314000" />
       <workItem from="1542369748236" duration="7867000" />
+      <workItem from="1542536572839" duration="262000" />
+      <workItem from="1542536880242" duration="1513000" />
+      <workItem from="1542539644457" duration="2801000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91176000" />
+    <option name="totallyTimeSpent" value="95752000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1040" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3378729" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5019531" side_tool="true" weight="0.46666667" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.3294423" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info id="Capture Tool" order="6" />
-      <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4993515" weight="0.46713287" />
+      <window_info id="Designer" order="2" />
+      <window_info anchor="right" id="Database" order="6" weight="0.3294423" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49902344" weight="0.32713178" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info id="Image Layers" order="3" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Version Control" order="13" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49804688" weight="0.46666667" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5006485" side_tool="true" visible="true" weight="0.46713287" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32867134" />
-      <window_info anchor="bottom" id="Java Enterprise" order="11" />
-      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="13" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Maven Projects" order="5" weight="0.3294423" />
-      <window_info anchor="right" id="Database" order="6" weight="0.3294423" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33691406" />
       <window_info anchor="right" id="Bean Validation" order="9" weight="0.3294423" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="right" id="Preview" order="10" weight="0.20168613" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -503,28 +681,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/ckeditor/config.cs" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/ck.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/ckeditor/ckeditor-java-core/3.5.3/ckeditor-java-core-3.5.3.jar!/com/ckeditor/CKEditorConfig.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/ckeditor/ckeditor-java-core/3.5.3/ckeditor-java-core-3.5.3.jar!/com/ckeditor/CKEditorInsertTag.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/ckeditor/ckeditor-java-core/3.5.3/ckeditor-java-core-3.5.3.jar!/com/ckeditor/TagHelper.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -549,13 +705,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/edit-postold.html" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/single-post.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2312">
-          <caret line="136" column="90" selection-start-line="136" selection-start-column="90" selection-end-line="136" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/create-post.html" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/topjal/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -581,35 +730,10 @@
         <state relative-caret-position="-867" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="90" selection-start-line="90" selection-end-line="90" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/topjal/controller/ViewController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#238#239#0" expanded="true" />
-            <element signature="e#267#268#0" expanded="true" />
-            <element signature="e#322#323#0" expanded="true" />
-            <element signature="e#351#352#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/topjal/config/SecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="61" column="29" lean-forward="true" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
-          <folding>
-            <element signature="e#1542#1543#0" expanded="true" />
-            <element signature="e#1592#1593#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -691,31 +815,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/topjal/entity/Tag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/topjal/entity/Post.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="295">
           <caret line="106" column="5" lean-forward="true" selection-start-line="106" selection-start-column="5" selection-end-line="106" selection-end-column="5" />
-          <folding>
-            <element signature="e#2044#2045#0" expanded="true" />
-            <element signature="e#2073#2074#0" expanded="true" />
-            <element signature="e#2117#2118#0" expanded="true" />
-            <element signature="e#2153#2154#0" expanded="true" />
-            <element signature="e#2415#2416#0" expanded="true" />
-            <element signature="e#2448#2449#0" expanded="true" />
-            <element signature="e#2498#2499#0" expanded="true" />
-            <element signature="e#2542#2543#0" expanded="true" />
-            <element signature="e#2577#2578#0" expanded="true" />
-            <element signature="e#2610#2611#0" expanded="true" />
-            <element signature="e#2660#2661#0" expanded="true" />
-            <element signature="e#2704#2705#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -754,16 +857,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/post-list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="30" column="76" selection-start-line="30" selection-start-column="76" selection-end-line="30" selection-end-column="76" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/topjal/repo/PostRepo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -782,49 +875,101 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
-          <folding>
-            <element signature="e#524#525#0" expanded="true" />
-            <element signature="e#570#571#0" expanded="true" />
-            <element signature="e#920#921#0" expanded="true" />
-            <element signature="e#988#989#0" expanded="true" />
-            <element signature="e#1149#1150#0" expanded="true" />
-            <element signature="e#1191#1192#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/topjal/controller/PostController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/vs.css" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/highlights/jquery.highlight.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="157" column="62" selection-start-line="157" selection-start-column="62" selection-end-line="157" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/post-create.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
-          <caret line="72" column="87" selection-start-line="72" selection-start-column="87" selection-end-line="72" selection-end-column="87" />
+        <state relative-caret-position="3145">
+          <caret line="185" column="8" lean-forward="true" selection-start-line="185" selection-start-column="8" selection-end-line="185" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/ckeditor/samples/js/sample.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+        <state relative-caret-position="109">
+          <caret line="51" column="9" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/ckeditor/highlights/styles/vs.css">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/post-list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="15" lean-forward="true" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+        <state relative-caret-position="259">
+          <caret line="30" column="76" selection-start-line="30" selection-start-column="76" selection-end-line="30" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/topjal/service/RoleService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/highlights/jquery.highlight.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="37" column="20" lean-forward="true" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-510">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/topjal/config/SecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="57" column="37" lean-forward="true" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/topjal/entity/Tag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="8" column="18" lean-forward="true" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/single-post.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="150" column="14" lean-forward="true" selection-start-line="129" selection-start-column="5" selection-end-line="150" selection-end-column="14" />
+          <folding>
+            <element signature="n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/post-create.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1173">
+          <caret line="69" column="15" lean-forward="true" selection-start-line="69" selection-start-column="15" selection-end-line="69" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/post-single.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="90" selection-start-line="3" selection-start-column="90" selection-end-line="3" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/topjal/controller/PostController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="161" column="53" selection-start-line="161" selection-start-column="47" selection-end-line="161" selection-end-column="53" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/layoutck.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-583">
-          <caret line="15" column="97" selection-start-line="15" selection-start-column="97" selection-end-line="15" selection-end-column="97" />
+        <state relative-caret-position="58">
+          <caret line="40" column="84" selection-start-line="40" selection-start-column="84" selection-end-line="40" selection-end-column="84" />
         </state>
       </provider>
     </entry>
