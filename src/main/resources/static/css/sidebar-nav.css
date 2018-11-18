@@ -302,3 +302,7 @@ h4:hover{
    background: #1c7430;
     background: rgba(255, 255, 255, 0.4)!important;
 }
+
+.mainbody{
+    background: rgba(255, 255, 255, 0.8)!important;;
+}

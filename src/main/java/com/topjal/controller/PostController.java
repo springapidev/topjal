@@ -141,7 +141,8 @@ post.setTags(sets);
         modelAndView.addObject("allTags", tagRepo.findAll());
         return "redirect:/post/create";
     }
-
+    int clicks=0;
+    int likes=0;
     @RequestMapping(value = "/post/list", method = RequestMethod.GET)
     public ModelAndView getPostList(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "9") int perPage) {
         ModelAndView modelAndView = new ModelAndView();
@@ -149,17 +150,45 @@ post.setTags(sets);
         modelAndView.addObject("post", post);
         modelAndView.addObject("list", service.findTopBy9ByOrderByCreateDateDesc(page, perPage));
         modelAndView.addObject("allTags", tagRepo.findAll());
-
-
+        modelAndView.addObject("clicks", clicks);
+        modelAndView.addObject("likes", likes);
         modelAndView.setViewName("post-list");
         return modelAndView;
     }
+
     @RequestMapping(value = "/post/{id}", method = RequestMethod.GET)
     public ModelAndView getSinglePost(@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView();
         Post post = new Post();
         modelAndView.addObject("post", service.getPost(id));
                 modelAndView.setViewName("post-single");
+                clicks++;
+        modelAndView.addObject("clicks", clicks);
+        System.out.println("clicks: "+id+" : "+clicks);
+        modelAndView.addObject("likes", likes);
         return modelAndView;
+    }
+    @RequestMapping(value = "/post/{id}/{like}", method = RequestMethod.GET)
+    public String getSinglePostLikes(@PathVariable Long id,@PathVariable String like) {
+        ModelAndView modelAndView = new ModelAndView();
+        Post post = new Post();
+        modelAndView.addObject("post", service.getPost(id));
+        modelAndView.setViewName("post-single");
+        likes++;
+        modelAndView.addObject("clicks", clicks);
+        modelAndView.addObject("likes", likes);
+        System.out.println("clicks: "+id+" : "+clicks);
+
+        return "redirect:/post/list";
+    }
+    @RequestMapping(value = "/post/list/{like}", method = RequestMethod.GET)
+    public String getPostLikes(@PathVariable String like) {
+        ModelAndView modelAndView = new ModelAndView();
+
+        likes++;
+        modelAndView.addObject("likes", likes);
+
+        modelAndView.setViewName("post-list");
+        return "redirect:/post/list";
     }
 }

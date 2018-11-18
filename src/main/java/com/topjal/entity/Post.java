@@ -51,6 +51,12 @@ public class Post {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @Column(name = "no_clicks")
+    private Long noOfClicks;
+    @Column(name = "no_likes")
+    private Long noOfLikes;
+
+
     public Post() {
     }
 
@@ -124,6 +130,22 @@ public class Post {
 
     public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
+    }
+
+    public Long getNoOfClicks() {
+        return noOfClicks;
+    }
+
+    public void setNoOfClicks(Long noOfClicks) {
+        this.noOfClicks = noOfClicks;
+    }
+
+    public Long getNoOfLikes() {
+        return noOfLikes;
+    }
+
+    public void setNoOfLikes(Long noOfLikes) {
+        this.noOfLikes = noOfLikes;
     }
 
     @Override
