@@ -11,9 +11,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.servlet.HttpServletBean;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.Date;
 
 @Controller
 public class CommentController {
@@ -23,25 +29,34 @@ public class CommentController {
     @Autowired
     private PostService postService;
 
-    @RequestMapping(value = "/comments", method = RequestMethod.POST)
-    public ModelAndView saveComment(@Valid Comment comment, BindingResult bindingResult, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "4") int perPage) {
+    @RequestMapping(value = "/post/{id}", method = RequestMethod.POST)
+    public String saveComment(@Valid Comment comment, BindingResult bindingResult, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "4") int perPage, @PathVariable Long id, HttpServletRequest http) {
         ModelAndView modelAndView = new ModelAndView();
+        comment.setStatus(true);
+        comment.setCommentDate(new Date());
+
+        comment.setUpdateDate(new Date());
+        http=((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
+                .getRequest();;
+        comment.setIpAddress(http.getRemoteAddr());
         Post post = new Post();
-        post.setId(comment.getId());
-        if (comment.getDescription() != null) {
+        post.setId(id);
+        comment.setPost(post);
+        if (comment.getDescription() == null) {
             bindingResult.rejectValue("description", "error.comment", "Write Your Comment First");
            //odelAndView.addObject("commentList", service.findTop20ByOrderByPostDesc(post, page, perPage));
         }
         if (bindingResult.hasErrors()) {
-            modelAndView.setViewName("post-single");
+            //modelAndView.setViewName("post-single");
+            return "redirect:/post/"+id;
         } else {
-            comment.setId(0L);
-           service.save(comment);
+            System.out.println(comment);
+            service.save(comment);
             modelAndView.addObject("comment", new Comment());
-         // modelAndView.addObject("commentList", service.findTop20ByOrderByPostDesc(post, page, perPage));
+          // modelAndView.addObject("commentList", service.findTop20ByOrderByPostDesc(post, page, perPage));
             modelAndView.setViewName("post-single");
         }
-        return modelAndView;
+        return "redirect:/post/"+id;
     }
 
 

@@ -34,7 +34,7 @@
                 </div>
                 <div class="card-footer">
                     <a href="#" class="card-link fa fa-eye"> 254545</a>
-                    <a href="#" class="card-link fas fa-comments"> 254</a>
+                    <a href="#" class="card-link fas fa-comments"> <i th:text="${noOfComments}"></i> </a>
                     <a href="#" class="card-link fas fa-thumbs-up"> 254</a>
                     <a href="#" class="card-link fas fa-external-link-alt"> Details</a>
                 </div>
@@ -44,14 +44,14 @@
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
             <h3>Write A Commnet</h3>
         <form class="form"  th:object="${comment}" method="POST"
-              th:action="@{/comments}">
+              th:action="@{'/post/'+ ${post.get().getId()}}">
 
           <input type="hidden" th:value="28" th:name="id" name="id">
             <div class="form-group">
                 <label class="col-lg-2 col-md-3 col-sm-4" for="editor">Comments:</label>
 
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                        <textarea name="description" th:type="text" class="form-control" id="editor" th:class="code" data-langauge="plaintext"
+                        <textarea name="description" th:type="text" class="form-control" id="editor"
                                   th:value="${comment.getDescription()}" th:name="*{description}"
                                   th:field="*{description}" placeholder="Enter Category Description" th:rows="20" required>
 

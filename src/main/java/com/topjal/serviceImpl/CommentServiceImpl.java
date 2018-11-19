@@ -9,6 +9,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CommentServiceImpl implements CommentService {
     @Autowired
@@ -27,5 +29,15 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public Page<Comment> findTop20ByOrderByPostDesc(Post post, int page, int perPageRow) {
         return repo.findTop20ByOrderByPostDesc(post,PageRequest.of(page,perPageRow));
+    }
+
+    @Override
+    public List<Comment> findAllByPost(Post post) {
+        return repo.findAllByPost(post);
+    }
+
+    @Override
+    public int countAllByPost(Post post) {
+        return repo.countAllByPost(post);
     }
 }

@@ -15,12 +15,11 @@ public class Comment {
     private Long id;
 
     @NotEmpty(message = "Please Enter Post Description")
-    @Column(name = "description")
+    @Column(name = "description",length = 10000)
     private String description;
 
     @Column(name = "status")
-    @NotEmpty(message = "Please Enter Status")
-    private String status;
+    private boolean status;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "comment_date")
@@ -55,11 +54,11 @@ public class Comment {
         this.description = description;
     }
 
-    public String getStatus() {
+    public boolean isStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 
@@ -106,11 +105,11 @@ public class Comment {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Comment)) return false;
         Comment comment = (Comment) o;
-        return Objects.equals(getId(), comment.getId()) &&
+        return isStatus() == comment.isStatus() &&
+                Objects.equals(getId(), comment.getId()) &&
                 Objects.equals(getDescription(), comment.getDescription()) &&
-                Objects.equals(getStatus(), comment.getStatus()) &&
                 Objects.equals(getCommentDate(), comment.getCommentDate()) &&
                 Objects.equals(getUpdateDate(), comment.getUpdateDate()) &&
                 Objects.equals(getPost(), comment.getPost()) &&
@@ -120,7 +119,6 @@ public class Comment {
 
     @Override
     public int hashCode() {
-
-        return Objects.hash(getId(), getDescription(), getStatus(), getCommentDate(), getUpdateDate(), getPost(), getUser(), getIpAddress());
+        return Objects.hash(getId(), getDescription(), isStatus(), getCommentDate(), getUpdateDate(), getPost(), getUser(), getIpAddress());
     }
 }

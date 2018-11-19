@@ -145,6 +145,7 @@ post.setTags(sets);
     }
     int clicks=0;
     int likes=0;
+    int noOfComments=0;
     @RequestMapping(value = "/post/list", method = RequestMethod.GET)
     public ModelAndView getPostList(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "9") int perPage) {
         ModelAndView modelAndView = new ModelAndView();
@@ -154,6 +155,7 @@ post.setTags(sets);
         modelAndView.addObject("allTags", tagRepo.findAll());
         modelAndView.addObject("clicks", clicks);
         modelAndView.addObject("likes", likes);
+
         modelAndView.setViewName("post-list");
         return modelAndView;
     }
@@ -169,8 +171,10 @@ post.setTags(sets);
         modelAndView.addObject("clicks", clicks);
         System.out.println("clicks: "+id+" : "+clicks);
         modelAndView.addObject("likes", likes);
+        modelAndView.addObject("noOfComments", commentService.countAllByPost(post));
         modelAndView.addObject("comment", new Comment());
-        modelAndView.addObject("commentList",commentRepo.findAll());
+       // modelAndView.addObject("commentList",commentRepo.findAll());
+       modelAndView.addObject("commentList", commentService.findAllByPost(post));
         return modelAndView;
     }
     @RequestMapping(value = "/post/{id}/{like}", method = RequestMethod.GET)
