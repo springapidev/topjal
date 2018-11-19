@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -56,6 +57,8 @@ public class Post {
     @Column(name = "no_likes")
     private Long noOfLikes;
 
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    private List<Comment> comments;
 
     public Post() {
     }
@@ -146,6 +149,14 @@ public class Post {
 
     public void setNoOfLikes(Long noOfLikes) {
         this.noOfLikes = noOfLikes;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 
     @Override

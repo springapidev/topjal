@@ -1,12 +1,11 @@
 package com.topjal.controller;
 
 
-import com.topjal.entity.Category;
-import com.topjal.entity.Post;
-import com.topjal.entity.Tag;
-import com.topjal.entity.User;
+import com.topjal.entity.*;
 import com.topjal.repo.CategoryRepo;
+import com.topjal.repo.CommentRepo;
 import com.topjal.repo.TagRepo;
+import com.topjal.service.CommentService;
 import com.topjal.service.PostService;
 import com.topjal.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,8 +39,11 @@ public class PostController {
     @Autowired
     private UserService userService;
 
-    private static int currentPage = 1;
-    private static int pageSize = 5;
+    @Autowired
+    private CommentService commentService;
+
+    @Autowired
+    private CommentRepo commentRepo;
 
     @RequestMapping(value = "/post/create", method = RequestMethod.GET)
     public ModelAndView getPost(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "40") int perPage) {
@@ -157,15 +159,18 @@ post.setTags(sets);
     }
 
     @RequestMapping(value = "/post/{id}", method = RequestMethod.GET)
-    public ModelAndView getSinglePost(@PathVariable Long id) {
+    public ModelAndView getSinglePost(@PathVariable Long id, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "9") int perPage) {
         ModelAndView modelAndView = new ModelAndView();
         Post post = new Post();
+        post.setId(id);
         modelAndView.addObject("post", service.getPost(id));
                 modelAndView.setViewName("post-single");
                 clicks++;
         modelAndView.addObject("clicks", clicks);
         System.out.println("clicks: "+id+" : "+clicks);
         modelAndView.addObject("likes", likes);
+        modelAndView.addObject("comment", new Comment());
+        modelAndView.addObject("commentList",commentRepo.findAll());
         return modelAndView;
     }
     @RequestMapping(value = "/post/{id}/{like}", method = RequestMethod.GET)
