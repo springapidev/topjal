@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 
@@ -55,6 +57,5 @@ repo.deleteById(id);
     public Page<Post> findTopBy9ByOrderByCreateDateDesc(int page, int perPageRow) {
         return repo.findTop9ByOrderByCreateDateDesc(PageRequest.of(page,perPageRow));
     }
-
 
 }

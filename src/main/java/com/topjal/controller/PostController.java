@@ -4,11 +4,14 @@ package com.topjal.controller;
 import com.topjal.entity.*;
 import com.topjal.repo.CategoryRepo;
 import com.topjal.repo.CommentRepo;
+import com.topjal.repo.PostRepo;
 import com.topjal.repo.TagRepo;
 import com.topjal.service.CommentService;
 import com.topjal.service.PostService;
 import com.topjal.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -44,6 +47,7 @@ public class PostController {
 
     @Autowired
     private CommentRepo commentRepo;
+
 
     @RequestMapping(value = "/post/create", method = RequestMethod.GET)
     public ModelAndView getPost(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "40") int perPage) {
@@ -168,6 +172,7 @@ post.setTags(sets);
         modelAndView.addObject("post", service.getPost(id));
                 modelAndView.setViewName("post-single");
                 clicks++;
+
         modelAndView.addObject("clicks", clicks);
         System.out.println("clicks: "+id+" : "+clicks);
         modelAndView.addObject("likes", likes);
@@ -184,6 +189,7 @@ post.setTags(sets);
         modelAndView.addObject("post", service.getPost(id));
         modelAndView.setViewName("post-single");
         likes++;
+
         modelAndView.addObject("clicks", clicks);
         modelAndView.addObject("likes", likes);
         System.out.println("clicks: "+id+" : "+clicks);
@@ -195,6 +201,7 @@ post.setTags(sets);
         ModelAndView modelAndView = new ModelAndView();
 
         likes++;
+
         modelAndView.addObject("likes", likes);
 
         modelAndView.setViewName("post-list");
