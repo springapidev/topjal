@@ -38,7 +38,6 @@ public class User {
     private String email;
 
     @Length(min = 11, message = "*Your mobile must have at least 11 characters")
-    @NotEmpty(message = "*Please enter your mobile")
     @Column(name = "mobile", unique = true)
     private String mobile;
 
@@ -55,6 +54,14 @@ public class User {
     @Size(min = 0, max = 100)
     @Column(name = "reset_pass_key")
     private String resetPasswordKey;
+
+    @Column(name = "ip_address")
+    private String ipAddress;
+    @Column(name = "mac_address")
+    private  String macAddress;
+    @Column(name = "country")
+    private String country;
+
 
     @OneToMany(mappedBy = "user")
     private Set<Post> posts;

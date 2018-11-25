@@ -1,6 +1,10 @@
 package com.topjal.controller;
 
+import com.maxmind.geoip2.exception.GeoIp2Exception;
 import com.topjal.service.PostService;
+import com.topjal.util.GeoIP;
+import com.topjal.util.GeoLocations;
+import com.topjal.util.SystemInfoCollect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -12,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.IOException;
+
 @Controller
 public class HomeController {
     @Autowired
@@ -22,6 +28,14 @@ public class HomeController {
         modelAndView.addObject("title","Hire Us to Build Your  Future ");
         modelAndView.addObject("list", service.getAllPosts(page, perPage));
         modelAndView.setViewName("index");
+        try {
+            GeoIP loGeoIP = GeoLocations.getLocation(SystemInfoCollect.getIPAddress());
+            System.out.println(loGeoIP);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (GeoIp2Exception e) {
+            e.printStackTrace();
+        }
         return modelAndView;
     }
 

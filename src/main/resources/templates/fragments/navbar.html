@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <body>
 
@@ -19,6 +18,7 @@
                         <a class="nav-link" href="/" th:href="@{/}"> <i class="fas fa-home"></i> Home</i>
                         </a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="#"> <i class="fas fa-project-diagram"></i> Projects</a>
                     </li>
@@ -28,15 +28,25 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/post/list"> <i class="fas fa-code" th:href="@{/post/list}"></i> Tutorials</a>
                     </li>
+                    <span sec:authorize="!isAuthenticated()">
                     <li class="nav-item">
                         <a class="nav-link" href="/signup" th:href="@{/signup}"> <i class="fas fa-user-plus"> Sign Up</i></a>
                     </li>
-
+                    </span>
+                    <span sec:authorize="!isAuthenticated()">
                     <li class="nav-item">
                         <a class="nav-link" href="/login" th:href="@{/login}">
                             <i class="fas fa-sign-in-alt"></i> Login
                         </a>
                     </li>
+                    </span>
+                    <span sec:authorize="isAuthenticated()">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login" th:href="@{/logout}">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </li>
+                    </span>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
                             <i class="fas fa-search"></i>

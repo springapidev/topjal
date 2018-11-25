@@ -4,6 +4,7 @@ import com.topjal.entity.Comment;
 import com.topjal.entity.Post;
 import com.topjal.service.CommentService;
 import com.topjal.service.PostService;
+import com.topjal.util.SystemInfoCollect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -30,15 +31,15 @@ public class CommentController {
     private PostService postService;
 
     @RequestMapping(value = "/post/{id}", method = RequestMethod.POST)
-    public String saveComment(@Valid Comment comment, BindingResult bindingResult, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "4") int perPage, @PathVariable Long id, HttpServletRequest http) {
+    public String saveComment(@Valid Comment comment, BindingResult bindingResult, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "4") int perPage, @PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView();
         comment.setStatus(true);
         comment.setCommentDate(new Date());
 
         comment.setUpdateDate(new Date());
-        http=((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
-                .getRequest();;
-        comment.setIpAddress(http.getRemoteAddr());
+
+        comment.setIpAddress(SystemInfoCollect.getIPAddress());
+
         Post post = new Post();
         post.setId(id);
         comment.setPost(post);

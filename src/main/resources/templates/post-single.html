@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layoutck.html}">
-
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layoutck.html}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <title>Home</title>
+    <style type="text/css">
+        pre {
+            white-space: pre;
+        }
+
+        textarea {
+            height: auto !important;
+        }
+
+        p {
+            font-weight: normal;
+        }
+    </style>
 </head>
 <body>
 <div layout:fragment="custom-content">
@@ -19,7 +32,7 @@
             <h1>Tutorials </h1>
         </div>
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 text-right">
-            <h2><a href="create" th:href="@{create}">Add New Post</a> </h2>
+            <h2><a href="create" th:href="@{create}">Add New Post</a></h2>
         </div>
     </div>
     <div class="row">
@@ -29,7 +42,7 @@
                 <img class="card-img-top" src="/images/puzzles.jpg" alt="Card image">
                 <div class="card-body">
                     <h4 class="card-title" th:text="${post.get().getTitle()}">Card title</h4>
-                    <p th:utext=" ${post.get().getDescription()}"     >Description</p>
+                    <p th:utext=" ${post.get().getDescription()}">Description</p>
                     <!--<p th:utext=" ${#strings.substring(post.get().getDescription(),0,100)}"     >Description</p>-->
                 </div>
                 <div class="card-footer">
@@ -41,51 +54,90 @@
 
             </div>
         </div>
-        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-            <h3>Write A Commnet</h3>
-        <form class="form"  th:object="${comment}" method="POST"
-              th:action="@{'/post/'+ ${post.get().getId()}}">
 
-          <input type="hidden" th:value="28" th:name="id" name="id">
-            <div class="form-group">
-                <label class="col-lg-2 col-md-3 col-sm-4" for="editor">Comments:</label>
-
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                        <textarea name="description" th:type="text" class="form-control" id="editor"
-                                  th:value="${comment.getDescription()}" th:name="*{description}"
-                                  th:field="*{description}" placeholder="Enter Category Description" th:rows="20" required>
-
-                        </textarea>
-                    <label th:if="${#fields.hasErrors('description')}" th:errors="*{description}"
-                           class="text-danger"></label>
-                </div>
-            </div>
-
-
-
-            <div class="form-group">
-                <div class="offset-lg-2 offset-md-3 offset-sm-4 col-lg-10 col-md-9 col-sm-8">
-                    <button type="submit" class="btn btn-lg btn-outline-dark btn-block">Submit</button>
-                </div>
-            </div>
-
-        </form>
-        </div>
-
+        <h2>Comments</h2>
         <!--Card-1 End-->
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" th:if="${not #lists.isEmpty(commentList)}">
-            <div class="card card-effect" th:each="comm : ${commentList}" >
+            <div class="card card-effect" th:each="comm : ${commentList}">
                 <div class="card-body code" data-langauge="css">
-
-                    <p th:utext="${comm.getDescription()}">Description</p>
-
+          <pre>
+              <code>
+                  <p th:utext="${comm.getDescription()}">Description</p>
+              </code>
+          </pre>
                 </div>
-
+                <div class="card-footer">
+                    <a class="card-link">${comm.get}</a>
+                </div>
 
             </div>
         </div>
+
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+            <h3>Say something about this awesome post!</h3>
+            <form class="form" th:object="${comment}" method="POST"
+                  th:action="@{'/post/'+ ${post.get().getId()}}">
+
+                <input type="hidden" th:value="28" th:name="id" name="id">
+                <div class="form-group">
+                    <label class="col-lg-2 col-md-3 col-sm-4" for="editorx">Comments:</label>
+                    <h6>Guidelines:</h6>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            You may use html tag like <h2>This is something BIG </h2>
+                        </li>
+                        <li class="list-group-item">
+                            You may provide or write any related language source like
+                            <pre class="code" data-langauge="html"> <pre class="code" data-langauge="java"> This is source code.</pre></pre>
+                            . If you write html, just change data-language="html".
+                        </li>
+                        <li class="list-group-item">
+                            It is strickly prohibited to write any malfunction code to destroy this website or any
+                            purpose that may harm anybody.
+                        </li>
+                        <li class="list-group-item">
+                            It is not place to crticise someone, but you can ask or tell anyone comments if you are not
+                            agree, you can comment with proof. We are here for learning from each other,
+                        </li>
+                        <li class="list-group-item">
+                            It is requested to write relevant comments.
+                        </li>
+                        <li class="list-group-item">
+                            If you got any mistake, it will be highly appreciated if you kindly send us an email.
+                        </li>
+                    </ul>
+
+
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <textarea name="description" th:type="text" class="form-control" id="editorx"
+                                  th:value="${comment.getDescription()}" th:name="*{description}"
+                                  th:field="*{description}" placeholder="Enter Category Description" th:rows="5"
+                                  required>
+
+                        </textarea>
+                        <label th:if="${#fields.hasErrors('description')}" th:errors="*{description}"
+                               class="text-danger"></label>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="offset-lg-2 offset-md-3 offset-sm-4 col-lg-10 col-md-9 col-sm-8">
+                        <button type="submit" class="btn btn-lg btn-outline-dark btn-block">Submit</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
     </div>
 </div>
-
+<script>
+    $("#submit-code").click(function () {
+        $("pre code").text($("textarea").val());
+    }).next().click(function () {
+        $("textarea").val($("pre code").text());
+    });
+</script>
 </body>
 </html>

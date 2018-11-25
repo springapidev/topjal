@@ -128,6 +128,39 @@ public class UserController {
         return "redirect:/user/create";
     }
 
+///////////////////////////////Sign Up///////////////////////
+@RequestMapping(value = "/signup", method = RequestMethod.POST)
+public ModelAndView signUp(@Valid User user, BindingResult bindingResult) {
+    ModelAndView modelAndView = new ModelAndView();
+    Set<Role> roles = new HashSet<>();
+        Role role = roleRepo.findByRolename("ROLE_USER");
+        role.setId(role.getId());
+        roles.add(role);
+    user.setRoles(roles);
 
+    user.setPassword(passwordEncoder.encode(user.getPassword()));
+    user.setJoiningDate(new Date());
+    user.setActivated(true);
+
+    User userNameExit = service.isUserNameAlreadyExist(user.getUserName());
+    User emailExit = service.isEmailAlreadyExist(user.getEmail());
+    User mobileExit = service.isMobileAlreadyExist(user.getMobile());
+    System.out.println("===== " + user.getRoles().toString());
+    if (userNameExit != null  && user.getId() == null) {
+        bindingResult.rejectValue("userName", "error.user", "This User Name already Exist!");
+    }else if (emailExit != null  && user.getId() == null) {
+        bindingResult.rejectValue("email", "error.user", "This Email already Exist!");
+    }
+    if (bindingResult.hasErrors()) {
+        modelAndView.setViewName("signup");
+    } else {
+            service.save(user);
+            modelAndView.addObject("successMessage", "Registration Success");
+        }
+        modelAndView.addObject("user", new User());
+        modelAndView.setViewName("create-user");
+
+       return modelAndView;
+}
 
 }
