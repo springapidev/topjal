@@ -37,6 +37,10 @@ public class Comment {
     private User user;
 
     private String ipAddress;
+    @Column(name = "mac_address")
+    private  String macAddress;
+    @Column(name = "country")
+    private String country;
 
     public Long getId() {
         return id;
@@ -100,6 +104,22 @@ public class Comment {
 
     public void setIpAddress(String ipAddress) {
         this.ipAddress = ipAddress;
+    }
+
+    public String getMacAddress() {
+        return macAddress;
+    }
+
+    public void setMacAddress(String macAddress) {
+        this.macAddress = macAddress;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.topjal.controller;
 
-import com.topjal.exception.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

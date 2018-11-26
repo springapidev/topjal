@@ -56,5 +56,10 @@ repo.deleteById(id);
         return repo.findByUserName(userName);
     }
 
+    @Override
+    public User findByActivationKey(String activationKey) {
+        return repo.findByActivationKey(activationKey);
+    }
+
 
 }

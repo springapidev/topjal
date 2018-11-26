@@ -1,12 +1,16 @@
 package com.topjal.controller;
 
 
+import com.nulabinc.zxcvbn.Strength;
+import com.nulabinc.zxcvbn.Zxcvbn;
 import com.topjal.entity.Role;
 import com.topjal.entity.User;
 import com.topjal.repo.RoleRepo;
 import com.topjal.service.UserService;
+import com.topjal.util.EmailService;
+import com.topjal.util.SystemInfoCollect;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,12 +20,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 
 @Controller
@@ -37,6 +40,8 @@ public class UserController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private EmailService emailService;
 
     @RequestMapping(value = "/user/create", method = RequestMethod.GET)
     public ModelAndView getuser(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "4") int perPage) {
@@ -59,7 +64,7 @@ public class UserController {
             roles.add(role);
         }
         user.setRoles(roles);
-       user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setJoiningDate(new Date());
         user.setActivated(true);
         ModelAndView modelAndView = new ModelAndView();
@@ -67,15 +72,15 @@ public class UserController {
         User emailExit = service.isEmailAlreadyExist(user.getEmail());
         User mobileExit = service.isMobileAlreadyExist(user.getMobile());
         System.out.println("===== " + user.getRoles().toString());
-        if (userNameExit != null  && user.getId() == null) {
+        if (userNameExit != null && user.getId() == null) {
             bindingResult.rejectValue("userName", "error.user", "This User Name already Exist!");
             modelAndView.addObject("users", service.getAllUsers(page, perPage));
             modelAndView.addObject("allRoles", roleRepo.findAll());
-        }else if (emailExit != null  && user.getId() == null) {
+        } else if (emailExit != null && user.getId() == null) {
             bindingResult.rejectValue("email", "error.user", "This Email already Exist!");
             modelAndView.addObject("users", service.getAllUsers(page, perPage));
             modelAndView.addObject("allRoles", roleRepo.findAll());
-        }else if (mobileExit != null  && user.getId() == null) {
+        } else if (mobileExit != null && user.getId() == null) {
             bindingResult.rejectValue("mobile", "error.user", "This Mobile Number already Exist!");
             modelAndView.addObject("users", service.getAllUsers(page, perPage));
             modelAndView.addObject("allRoles", roleRepo.findAll());
@@ -128,39 +133,106 @@ public class UserController {
         return "redirect:/user/create";
     }
 
-///////////////////////////////Sign Up///////////////////////
-@RequestMapping(value = "/signup", method = RequestMethod.POST)
-public ModelAndView signUp(@Valid User user, BindingResult bindingResult) {
-    ModelAndView modelAndView = new ModelAndView();
-    Set<Role> roles = new HashSet<>();
-        Role role = roleRepo.findByRolename("ROLE_USER");
-        role.setId(role.getId());
-        roles.add(role);
-    user.setRoles(roles);
+    ///////////////////////////////Sign Up///////////////////////
+    @RequestMapping(value = "/signup", method = RequestMethod.POST)
+    public ModelAndView signUp(@Valid User user, BindingResult bindingResult, HttpServletRequest request) {
 
-    user.setPassword(passwordEncoder.encode(user.getPassword()));
-    user.setJoiningDate(new Date());
-    user.setActivated(true);
+        ModelAndView modelAndView = new ModelAndView();
+// Lookup user in database by e-mail
+        User emailExit = service.isEmailAlreadyExist(user.getEmail());
+        User userNameExit = service.isUserNameAlreadyExist(user.getUserName());
 
-    User userNameExit = service.isUserNameAlreadyExist(user.getUserName());
-    User emailExit = service.isEmailAlreadyExist(user.getEmail());
-    User mobileExit = service.isMobileAlreadyExist(user.getMobile());
-    System.out.println("===== " + user.getRoles().toString());
-    if (userNameExit != null  && user.getId() == null) {
-        bindingResult.rejectValue("userName", "error.user", "This User Name already Exist!");
-    }else if (emailExit != null  && user.getId() == null) {
-        bindingResult.rejectValue("email", "error.user", "This Email already Exist!");
-    }
-    if (bindingResult.hasErrors()) {
-        modelAndView.setViewName("signup");
-    } else {
-            service.save(user);
-            modelAndView.addObject("successMessage", "Registration Success");
+        if (userNameExit != null) {
+            bindingResult.rejectValue("userName", "error.user", "This User Name already Exist!");
+        } else if (emailExit != null && user.getId() == null) {
+            bindingResult.rejectValue("email", "error.user", "This Email already Exist!");
         }
-        modelAndView.addObject("user", new User());
-        modelAndView.setViewName("create-user");
 
-       return modelAndView;
-}
+        if (bindingResult.hasErrors()) {
+            modelAndView.setViewName("signup");
+        } else {
+            Set<Role> roles = new HashSet<>();
+            Role role = roleRepo.findByRolename("ROLE_USER");
+            role.setId(role.getId());
+            roles.add(role);
+            user.setRoles(roles);
+
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            user.setJoiningDate(new Date());
+            user.setActivated(false);
+            user.setIpAddress(SystemInfoCollect.getIPAddress());
+            user.setMacAddress(SystemInfoCollect.getMAC());
+            user.setActivationKey(UUID.randomUUID().toString());
+            service.save(user);
+
+            // for sending Email
+            String appUrl = request.getScheme() + "://" + request.getServerName();
+            SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+            simpleMailMessage.setTo(user.getEmail());
+            simpleMailMessage.setSubject("Registration Confirmation");
+            simpleMailMessage.setText("To confirm your e-mail address, please click the link below: \n"
+                    + appUrl + "/confirm?token=" + user.getActivationKey());
+            simpleMailMessage.setFrom("no-reply@coderbd.com");
+            emailService.sendEmail(simpleMailMessage);
+            modelAndView.addObject("confirmationMessage", "A confirmation e-mail has been sent to " + user.getEmail());
+        }
+        modelAndView.setViewName("signup");
+
+        return modelAndView;
+    }
+
+    // Process confirmation link
+    @RequestMapping(value="/confirm", method = RequestMethod.GET)
+    public ModelAndView showConfirmationPage(ModelAndView modelAndView, @RequestParam("token") String token) {
+
+        User user = service.findByActivationKey(token);
+
+        if (user == null) { // No token found in DB
+            modelAndView.addObject("invalidToken", "Oops!  This is an invalid confirmation link.");
+        } else { // Token found
+            modelAndView.addObject("confirmationToken", user.getActivationKey());
+        }
+
+        modelAndView.setViewName("confirm");
+        return modelAndView;
+    }
+
+    // Process confirmation link
+    @RequestMapping(value="/confirm", method = RequestMethod.POST)
+    public ModelAndView processConfirmationForm(ModelAndView modelAndView, BindingResult bindingResult, @RequestParam Map requestParams) {
+
+        modelAndView.setViewName("confirm");
+
+//        Zxcvbn passwordCheck = new Zxcvbn();
+//
+//        Strength strength = passwordCheck.measure(requestParams.get("password"));
+//
+//        if (strength.getScore() < 8) {
+//            bindingResult.reject("password");
+//
+//            redir.addFlashAttribute("errorMessage", "Your password is too weak.  Choose a stronger one.");
+//
+//            modelAndView.setViewName("redirect:confirm?token=" + requestParams.get("token"));
+//            System.out.println(requestParams.get("token"));
+//            return modelAndView;
+//        }
+//
+//        // Find the user associated with the reset token
+//        User user = service.findByActivationKey(requestParams.get("token"));
+//
+//        // Set new password
+//        user.setPassword(bCryptPasswordEncoder.encode(requestParams.get("password")));
+
+        User user=service.findByActivationKey(requestParams.keySet().toString());
+        // Set user to enabled
+        user.setActivated(true);
+
+        // Save user
+        service.save(user);
+
+        modelAndView.addObject("successMessage", "You may now login!");
+        return modelAndView;
+    }
+
 
 }

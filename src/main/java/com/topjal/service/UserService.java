@@ -16,5 +16,6 @@ public interface UserService {
     User isEmailAlreadyExist(String email);
     User isMobileAlreadyExist(String mobile);
     User isUserNameAlreadyExist(String userName);
+    User findByActivationKey(String activationKey);
 
 }

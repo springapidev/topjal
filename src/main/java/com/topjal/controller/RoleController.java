@@ -5,7 +5,6 @@ import com.topjal.entity.Role;
 import com.topjal.repo.PrivilizeRepo;
 import com.topjal.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

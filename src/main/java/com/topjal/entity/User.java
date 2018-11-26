@@ -47,7 +47,7 @@ public class User {
     @Column(name = "is_ctivated")
     private boolean isActivated;
 
-    @Size(min = 0, max = 100)
+
     @Column(name = "activation_key")
     private String activationKey;
 
@@ -209,5 +209,29 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public String getIpAddress() {
+        return ipAddress;
+    }
+
+    public void setIpAddress(String ipAddress) {
+        this.ipAddress = ipAddress;
+    }
+
+    public String getMacAddress() {
+        return macAddress;
+    }
+
+    public void setMacAddress(String macAddress) {
+        this.macAddress = macAddress;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 }

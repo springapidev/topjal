@@ -38,7 +38,9 @@ public class CommentController {
 
         comment.setUpdateDate(new Date());
 
+
         comment.setIpAddress(SystemInfoCollect.getIPAddress());
+        comment.setMacAddress(SystemInfoCollect.getMAC());
 
         Post post = new Post();
         post.setId(id);

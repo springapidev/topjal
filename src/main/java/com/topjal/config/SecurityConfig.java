@@ -59,7 +59,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/fonts/**",
                         "/webfonts/**",
                         "/signup/**",
-                        "forget-password/**",
                         "page1",
                         "page2"
                 ).permitAll()
@@ -70,7 +69,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/role/**"
                         ).hasRole("ADMIN")
                 .antMatchers("/post/**",
-                        "/tag/**").hasRole("USER")
+                        "/tag/**").hasAnyRole("USER","ADMIN")
                 .anyRequest()
                 .authenticated()
                 .and()
