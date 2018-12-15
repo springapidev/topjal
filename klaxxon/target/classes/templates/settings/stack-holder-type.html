@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout2.html}">
+
+<head>
+    <title>VBF Type Create</title>
+</head>
+<body>
+<div layout:fragment="custom-content">
+    <div class="row">
+
+
+        <div class="col-12 stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Add New Stack Holder Type</h4>
+
+                    <form class="forms-sample" th:object="${obj}" method="post" th:action="@{/stack-holder-type/create.do}">
+                        <div class="form-group row">
+                            <label for="cname" class="col-sm-3 col-form-label">Type Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="cname" th:field="*{stakeholderType}" required
+                                       placeholder="Enter Department name">
+                                <label th:text="${stackHolderTypeError}" class="text-danger"></label>
+                            </div>
+                        </div>
+
+
+                        <button class="btn btn-success mr-2 float-right">Submit</button>
+                        <button type="submit" class="btn btn-light mr-2 float-right">Reset</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin">
+            <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                <thead>
+                <tr>
+                    <th>Stack Holder Type</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="data : ${list}">
+                    <td th:text="${data.getStakeholderType()}">Stack Holder Type</td>
+                </tr>
+
+                </tbody>
+            </table>
+
+            <table cellspacing="0" cellpadding="0" border="0">
+                <tbody>
+                <tr>
+                    <td class="gutter">
+                        <div class="line number1 index0 alt2" style="display: none;">1</div>
+                    </td>
+                    <td class="code">
+                        <div class="container" style="display: none;">
+                            <div class="line number1 index0 alt2" style="display: none;">&nbsp;</div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

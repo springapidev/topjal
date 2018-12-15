@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout2.html}">
+
+<head>
+    <title>VBF Entry Create</title>
+</head>
+<body>
+<div layout:fragment="custom-content">
+    <div class="row">
+        <div class="col-12 stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Add New VBF Entry</h4>
+
+                    <form class="forms-sample" th:object="${obj}" method="post" th:action="@{/vbf/create.do}">
+                        <div class="form-group row">
+                            <label for="companyID" class="col-sm-3 col-form-label">Companies:</label>
+                            <div class="col-sm-9">
+                                    <select th:field="*{departmentID.companyID.companyID}" name="companyID" id="companyID"  class="form-control" >
+                                        <option  th:each="company : ${companyList}" th:value="${company.getCompanyID()}" th:text="${company.companyName}"></option>
+                                    </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="depId" class="col-sm-3 col-form-label">Companies:</label>
+                            <div class="col-sm-9">
+
+                                <select id="depId"  class="form-control" th:field="*{departmentID.departmentID}">
+                                    <option  th:each="dep : ${departmentList}" th:value="${dep.departmentID}" th:text="${dep.departmentName}"></option>
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="vbfTypeId" class="col-sm-3 col-form-label">VBF Type:</label>
+                            <div class="col-sm-9">
+
+                                <select  id="vbfTypeId"  class="form-control" th:field="*{vBFTypeID.vBFTypeID}">
+                                    <option  th:each="vbftype : ${vbfTypeList}" th:value="${vbftype.getvBFTypeID()}" th:text="${vbftype.getvBFType()}"></option>
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="vbfImpactTypeID" class="col-sm-3 col-form-label">VBF Bi Impact Type:</label>
+                            <div class="col-sm-9">
+
+                                <select  id="vbfImpactTypeID"  class="form-control"  th:field="*{businessImpactTypeID.impactTypeID}">
+                                    <option  th:each="vbfbitype : ${vbfBiImpactList}" th:value="${vbfbitype.getImpactTypeID()}" th:text="${vbfbitype.getImpact()}"></option>
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="vbfTypeLiId" class="col-sm-3 col-form-label">VBF Likelihood Type:</label>
+                            <div class="col-sm-9">
+
+                                <select  id="vbfTypeLiId"  class="form-control" th:field="*{vbflikelihoodtypes.impactTypeID}">
+                                    <option  th:each="vbftypeli : ${vbfLikelihoodList}" th:value="${vbftypeli.getImpactTypeID()}" th:text="${vbftypeli.getImpact()}"></option>
+                                </select>
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group row">
+                            <label for="vision" class="col-sm-3 col-form-label">Vision</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="vision" th:field="*{vision}" required
+                                       placeholder="Enter Vission">
+                               </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="misson" class="col-sm-3 col-form-label">Mission</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="misson" th:field="*{misson}" required
+                                       placeholder="Enter Vission">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="revenue" class="col-sm-3 col-form-label">Vision</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="revenue" th:field="*{revenue}" required
+                                       placeholder="Enter Vission">
+                            </div>
+                        </div>
+
+                        <button class="btn btn-success mr-2 float-right">Next</button>
+                        <button type="submit" class="btn btn-light mr-2 float-right">Reset</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin">
+            <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Department</th>
+                    <th>VBF Type</th>
+                    <th>Mission</th>
+                    <th>Vission</th>
+                    <th>Revenue</th>
+                    <th>Bi Impact Type</th>
+                    <th>Likelihood Type</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="data : ${list}">
+                    <td th:text="${data.getDepartmentID().getCompanyID().companyName}">Company</td>
+                    <td th:text="${data.getDepartmentID().getDepartmentName()}">Department</td>
+                    <td th:text="${data.getvBFTypeID().getvBFType()}">VBF Type</td>
+                    <td th:text="${data.getMisson()}">Mission</td>
+                    <td th:text="${data.getVision()}">Vision</td>
+                    <td th:text="${data.getRevenue()}">Revenue</td>
+                    <td th:text="${data.getBusinessImpactTypeID().getImpactTypeID()}">VBF Impact Type</td>
+                    <td th:text="${data.getVbflikelihoodtypes().getImpact()}">VBF Likelihood Type</td>
+                </tr>
+
+                </tbody>
+            </table>
+
+            <table cellspacing="0" cellpadding="0" border="0">
+                <tbody>
+                <tr>
+                    <td class="gutter">
+                        <div class="line number1 index0 alt2" style="display: none;">1</div>
+                    </td>
+                    <td class="code">
+                        <div class="container" style="display: none;">
+                            <div class="line number1 index0 alt2" style="display: none;">&nbsp;</div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+<script type="application/javascript">
+    function load(){
+        alert("--------called-------");
+    window.open('http://localhost:8008/vbf/create.do', '_PARENT');
+
+    }
+</script>
+</body>
+</html>

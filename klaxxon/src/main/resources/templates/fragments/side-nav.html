@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+    <body>
+
+        <nav class="sidebar sidebar-offcanvas" id="sidebar" th:fragment="side-navbar">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/" th:href="@{/}">
+                        <span class="menu-title">Dashboard</span>
+                        <!--<span class="menu-sub-title">( 2 new updates )</span>-->
+                        <i class="mdi mdi-home menu-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#department" aria-expanded="false" aria-controls="department">
+                        <span class="menu-title">Department</span>
+                        <i class="menu-arrow"></i>
+                        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                    </a>
+                    <div class="collapse" id="department">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link" th:href="@{/department/create.do}" href="/department/create.do">Create</a></li>
+                            <li class="nav-item"> <a class="nav-link" th:href="@{/department/list.do}" href="/department/list.do">List</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#company" aria-expanded="false" aria-controls="company">
+                        <span class="menu-title">Company</span>
+                        <i class="menu-arrow"></i>
+                        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                    </a>
+                    <div class="collapse" id="company">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link" th:href="@{/company/create.do}" href="/company/create.do">Create</a></li>
+                            <li class="nav-item"> <a class="nav-link" th:href="@{/company/list.do}" href="/company/list.do">List</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#vbf" aria-expanded="false" aria-controls="vbf">
+                        <span class="menu-title">VBF Entry</span>
+                        <i class="menu-arrow"></i>
+                        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                    </a>
+                    <div class="collapse" id="vbf">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link" th:href="@{/vbf/create.do}" href="/vbf/create.do">Create</a></li>
+                            <li class="nav-item"> <a class="nav-link" th:href="@{/vbf/list.do}" href="/vbf/list.do">List</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#data" aria-expanded="false" aria-controls="data">
+                        <span class="menu-title">Settings</span>
+                        <i class="menu-arrow"></i>
+                        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                    </a>
+                    <div class="collapse" id="data">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link" th:href="@{/vbftype/create.do}" href="/vbftype/create.do">Vbf Type</a></li>
+                            <li class="nav-item"> <a class="nav-link" th:href="@{/vbf-business-impact-type/create.do}" href="/vbf-business-impact-type/create.do">Vbf Business Impact Type</a></li>
+                            <li class="nav-item"> <a class="nav-link" th:href="@{/vbf-likelihood-type/create.do}" href="/vbf-likelihood-type/create.do">Vbf Likelihood Type</a></li>
+                            <li class="nav-item"> <a class="nav-link" th:href="@{/stack-holder-type/create.do}" href="/stack-holder-type/create.do">Stack Holder Type</a></li>
+                            <li class="nav-item"> <a class="nav-link" th:href="@{/processtype/create.do}" href="/processtype/create.do">Process Type</a></li>
+                       </ul>
+                    </div>
+                </li>
+
+
+
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#setings" aria-expanded="false" aria-controls="setings">
+                        <span class="menu-title">Settings</span>
+                        <i class="menu-arrow"></i>
+                        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                    </a>
+                    <div class="collapse" id="setings">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link" th:href="@{/setting/create.do}" href="/setting/create.do">Create</a></li>
+                            <li class="nav-item"> <a class="nav-link" th:href="@{/setting/list.do}" href="/setting/list.do">List</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+
+
+
+                <span sec:authorize="!isAuthenticated()">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <span class="menu-title">MMS Connection</span>
+                        <i class="mdi mdi-contacts menu-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <span class="menu-title">Goose Runtime</span>
+                        <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                    </a>
+                </li>
+                </span>
+
+            </ul>
+            <!--<div class="sidebar-progress">-->
+                <!--<p>Total Entties</p>-->
+                <!--<div class="progress progress-sm">-->
+                    <!--<div class="progress-bar bg-gradient-success" role="progressbar" style="width: 72%" aria-valuenow="13" aria-valuemin="0" aria-valuemax="30"></div>-->
+                <!--</div>-->
+                <!--<p>13 Entity Done</p>-->
+            <!--</div>-->
+            <!--<div class="sidebar-progress">-->
+                <!--<p>Target</p>-->
+                <!--<div class="progress progress-sm">-->
+                    <!--<div class="progress-bar bg-gradient-primary" role="progressbar" style="width: 90%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="30"></div>-->
+                <!--</div>-->
+                <!--<p>30 Entities</p>-->
+            <!--</div>-->
+        </nav>
+
+    </body>
+
+</html>
